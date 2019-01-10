@@ -1,0 +1,80 @@
+<editor>
+    <help>/commander/pages/@PLUGIN_NAME@/@PLUGIN_KEY@_help?s=Administration&amp;ss=Plugins#runPclint</help>
+    <formElement>
+        <type>entry</type>
+        <label>Path to Pclint:</label>
+        <property>PclintPath</property>
+        <required>1</required>
+        <documentation>Absolute path to PC-lint's executable.</documentation>
+    </formElement>
+    <formElement>
+        <type>entry</type>
+        <label>Absolute path to source file(s):</label>
+        <property>SourceCodeFiles</property>
+        <required>1</required>
+        <documentation>Absolute path to source file(s).</documentation>
+    </formElement>
+    <formElement>
+        <type>radio</type>
+        <label>Warning level:</label>
+        <property>WarningLevel</property>
+        <required>1</required>
+        <documentation>Warning level.</documentation>
+        <option><name>1</name><value>1</value></option>
+        <option><name>2</name><value>2</value></option>
+        <option><name>3</name><value>3</value></option>
+        <option><name>4</name><value>4</value></option>
+    </formElement>
+    <formElement>
+        <type>entry</type>
+        <label>Project name:</label>
+        <property>LintProjectName</property>
+        <required>0</required>
+        <documentation>Name for the lint projects that will be created from the project file.</documentation>
+    </formElement>
+    <formElement>
+        <type>entry</type>
+        <label>Project path:</label>
+        <property>ProjectPath</property>
+        <required>0</required>
+        <documentation>Absolute path to a project file (.vcproj, .vcp, .dsp or .bpr)</documentation>
+    </formElement>
+    <formElement>
+        <type>entry</type>
+        <label>Report Name:</label>
+        <property>ReportName</property>
+        <required>0</required>
+        <documentation>Specifies the path where the task report will be generated, if not specified, info will printed to console.</documentation>
+    </formElement>
+    <formElement>
+        <type>select</type>
+        <label>Report format: </label>
+        <property>ReportFormat</property>
+        <required>1</required>
+        <documentation>Type of report to generate, html, xml or text.</documentation>
+        <option><name>HTML</name><value>html</value></option>
+        <option><name>XML</name><value>xml</value></option>
+        <option><name>Text</name><value>txt</value></option>
+    </formElement>
+    <formElement>
+        <type>entry</type>
+        <label>Warnings to ignore:</label>
+        <property>IgnoreWarnings</property>
+        <required>0</required>
+        <documentation>Messages may also be suppressed by message number. For example, Warning 547.</documentation>
+    </formElement>
+    <formElement>
+        <type>textarea</type>
+        <label>Additional commands:</label>
+        <property>AdditionalCommands</property>
+        <required>0</required>
+        <documentation>Additional commands to be entered.</documentation>
+    </formElement>
+    <formElement>
+        <type>entry</type>
+        <label>Working directory:</label>
+        <property>WorkingDir</property>
+        <required>0</required>
+        <documentation>Provide the desired working directory. Leave blank to use the default workspace.</documentation>
+    </formElement>
+</editor>

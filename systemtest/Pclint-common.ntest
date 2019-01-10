@@ -1,0 +1,55 @@
+
+use strict;
+use warnings;
+use ECTest;
+
+# read in setup and tests that are common to all EC-Pclint plugin archives
+# system tests
+
+
+initCommander();
+
+$::gPlugin_name   = $::ENV{PLUGIN_NAME};
+$::gPlugin_key    = $::gPlugin_name;
+$::gPlugin_key    =~ s/-[^-]+$//;
+$::gPlugin_driver = $::gPlugin_key;
+#$::gPlugin_driver =~ s/-/::/g;
+$::gPlugin_driver =~ s/EC-Pclint/ECPclint/;
+
+
+$::gRunFlag = "RUNPclintTESTS";
+# win/lin matches the chronic3 procedure platform property
+$::gPlatform       = "lin";
+if ($^O eq "MSWin32") {
+    $::gPlatform = "win";
+} 
+
+if (defined($::ENV{$::gRunFlag}) && $::ENV{$::gRunFlag} eq "0" ) {
+    print "Skipping system tests\n";
+    exit 0;
+}
+
+$::N = $adminSession;
+my $xpath = $::N->getPlugin($::gPlugin_key);
+$::gPlugin_name = $xpath->findvalue('//pluginName')->value;
+$::gPlugin_ver = $xpath->findvalue('//pluginVersion')->value;
+$::gCreatePrivateDirs = 1;
+$::gECdtTestFileDir = "$::gTestFileDir/../../EC-Pclint/systemtest";
+
+$::ECEMMA = $::N->getProperty("/plugins/EC-Pclint/projectName")->findvalue("//value")->string_value;
+
+$::gJobId = $::ENV{COMMANDER_JOBID} || "1";
+$::gAgentResource = "local";
+
+    # show all key variables for debugging
+    print "==========EC Pclint NTEST SETUP============\n";
+    print "key     : $::gPlugin_key\n";
+    print "ver     : $::gPlugin_ver\n";
+    print "name    : $::gPlugin_name\n";
+    print "driver  : $::gPlugin_driver\n";
+    print "resource: $::gAgentResource\n";
+    print "platform: $::gPlatform\n";
+    print "jobid   : $::gJobId\n";
+   
+    
+1;

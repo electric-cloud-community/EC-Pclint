@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Windows (vers 25 March 2009), see www.w3.org" />
+  <meta content="text/html; charset=us-ascii" http-equiv=
+  "content-type" />
+
+  <title>ElectricFlow Plugin for PC-lint</title>
+  <link rel="stylesheet" href=
+  "../../plugins/@PLUGIN_KEY@/pluginhelp.css" type="text/css"
+  media="screen" />
+</head>
+
+<body>
+  <div class="help">
+    <h1>PC-lint</h1>
+
+    <p>Plugin Version @PLUGIN_VERSION@</p>
+    <hr style=
+    "margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;"
+    noshade="noshade" />
+	
+	<p>July 1, 2015</p>
+
+    <p>PC-lint finds quirks, idiosyncrasies, glitches, and bugs in
+    C and C++ programs.<br />
+    The purpose of such analysis is to determine potential problems
+    in such programs before integration or porting, or to reveal
+    unusual constructs that may be a source of subtle and, yet,
+    undetected errors, because it looks across several modules
+    rather than just one, it can determine things that a compiler
+    cannot.</p>
+
+    <h2>PC-lint Links</h2>
+
+    <p>More information can be found at <a href=
+    "http://www.gimpel.com/html/pcl.htm">this website</a>.</p>
+
+    <p>PC-lint on-line demos can be found at <a href=
+    "http://www.gimpel-online.com/OnlineTesting.html">this
+    website</a></p>
+
+    <h2>ElectricFlow Integration to PC-lint</h2>
+
+    <p>This plugin executes the Pc-lint code analysis from the
+    command line.</p>
+
+    <h2>Integrated Version</h2>
+
+    <p>This plugin was developed and tested against version
+    9.0.0.</p>
+
+    <h1>Plugin Procedures</h1>
+
+    <p>IMPORTANT: For all parameter descriptions below, required
+    parameters are shown in <span class='required'>bold
+    italics</span>.</p>
+
+    <div id="runPclint"><a name='runPclint' id="runPclint"></a>
+
+    <h3>runPclint</h3>
+
+    <p>The runPclint procedure creates and executes a command line
+    from the parameters you provide in the procedure form.</p>
+
+    <table class="grid">
+      <thead>
+        <tr>
+          <th>Parameter</th>
+
+          <th>Description</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td class='required'>Path to Pclint</td>
+
+          <td>Absolute path to PC-lint's executable.
+          (Required)</td>
+        </tr>
+
+        <tr>
+          <td class='required'>Absolute path to source file(s)</td>
+
+          <td>Absolute path to source file(s). (Required)</td>
+        </tr>
+
+        <tr>
+          <td class='required'>Warning level</td>
+
+          <td>Warning level.(This is the command-line '-w' option).
+          (Required)</td>
+        </tr>
+
+        <tr>
+          <td>Project name</td>
+
+          <td>Name for the lint projects that will be created from
+          the project file.</td>
+        </tr>
+
+        <tr>
+          <td>Project path</td>
+
+          <td>Absolute path to a project file (.vcproj, .vcp, .dsp
+          or .bpr)</td>
+        </tr>
+
+        <tr>
+          <td>Report Name</td>
+
+          <td>Specifies the path where the task report will be
+          generated, if not specified, info will printed to
+          console.</td>
+        </tr>
+
+        <tr>
+          <td class='required'>Report format</td>
+
+          <td>Type of report to generate, html, xml or text.
+          (Required)</td>
+        </tr>
+
+        <tr>
+          <td>Warnings to ignore</td>
+
+          <td>Messages may also be suppressed by message number.
+          For example, Warning 547. (This is the command-line '-e'
+          option).</td>
+        </tr>
+
+        <tr>
+          <td>Additional commands</td>
+
+          <td>Additional commands to be entered.</td>
+        </tr>
+
+        <tr>
+          <td>Working directory</td>
+
+          <td>Provide the desired working directory. Leave blank to
+          use the default workspace.</td>
+        </tr>
+      </tbody>
+    </table><img src=
+    "../../plugins/@PLUGIN_KEY@/images/Pclint-1.png" alt=
+    "Form" /></div>
+
+    <h1>Examples and Use Cases</h1>
+
+    <p>In this example we will see how to create an Electric
+    Commander procedure in order to analyze C/C++ code.</p>
+
+    <ol>
+      <li>For the example we are going to create a simple file with
+      Code:<br />
+      <img src="../../plugins/@PLUGIN_KEY@/images/Code.png" alt=
+      "Code" /></li>
+
+      <li>Save the file inside the following folder:<br />
+      <img src="../../plugins/@PLUGIN_KEY@/images/Tree.png" alt=
+      "Tree" /></li>
+
+      <li>Then we have to create an ElectricFlow step and
+      fill the parameter form:<br />
+      <img src="../../plugins/@PLUGIN_KEY@/images/Pclint-1.png"
+      alt="Form" /></li>
+
+      <li>After filling the form properly we just run the procedure
+      and see the results.</li>
+
+      <li>html output<br />
+      <img src="../../plugins/@PLUGIN_KEY@/images/Pclint-2.png"
+      alt="html" /></li>
+
+      <li>Plain text output:<br />
+      <img src="../../plugins/@PLUGIN_KEY@/images/Pclint-3.png"
+      alt="txt" /></li>
+
+      <li>XML output:<br />
+      <img src="../../plugins/@PLUGIN_KEY@/images/Pclint-4.png"
+      alt="xml" /></li>
+    </ol>
+
+    <h1>Release Notes</h1>
+	
+	
+    <h2>@PLUGIN_KEY@ 2.0.4</h2>
+		<ul>
+			<li>Renamed ElectricCommander to ElectricFlow.</li>
+		</ul> 	
+
+    <h2>@PLUGIN_KEY@-2.0.3</h2>
+
+    <ul>
+        <li>Procedure name(s) were changed in the step picker section</li>
+    </ul>
+    
+    <h2>@PLUGIN_KEY@-2.0.2</h2>
+    
+    <ul>
+      <li>Change Help page style.</li>
+    </ul>
+
+    <h2>@PLUGIN_KEY@-2.0.0</h2>
+
+    <ul>
+      <li>XML parameter panels.</li>
+
+      <li>The help page was changed</li>
+    </ul>
+  </div>
+</body>
+</html>

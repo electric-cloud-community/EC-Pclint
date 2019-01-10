@@ -1,0 +1,27 @@
+# -*-Perl-*-
+
+# Pclint.ntest -
+#
+# Exercise basic components of EC-Pclint plugin
+#
+# Copyright (c) 2005-2010 Electric Cloud, Inc.
+# All rights reserved
+
+use strict;
+use warnings;
+use ECTest;
+
+require "$::gTestFileDir/Pclint-common.ntest";
+
+# read in setup and tests that are common to all EC-Pclint plugin archives
+# system tests
+
+
+ntest "check-runPclint-present", {}, sub {
+    # Check that the plugin contains required components
+    my $xpath = $::N->getSteps("$::gPlugin_name","runPclint");
+    assertOK($xpath,"get steps");
+    assertEq("createPclintCommandLine", $xpath->findvalue("//step[1]/stepName"), "step 1: createCommandLine");
+    assertEq("runPclintCommandLine", $xpath->findvalue("//step[2]/stepName"), "step 2: runCommandLine");
+
+};
